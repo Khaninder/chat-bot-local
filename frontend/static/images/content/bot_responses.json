@@ -1,0 +1,80 @@
+{
+    "botresponses": [
+      {
+        "intro": [
+          {
+            "tag": "B3",
+            "response": "Hi! My name is Rocky."
+          },
+          {
+            "tag": "B4",
+            "response": "What would you like me to call you?"
+          },
+          {
+            "tag": "B5",
+            "response": "It's nice to meet you, [Name]."
+          },
+          {
+            "tag": "B6",
+            "response": "How are you doing today?"
+          }
+        ]
+      },
+      {
+        "positive": [
+          {
+            "tag": "B8",
+            "response": "Good! It’s great to hear that. I noticed you indicated that you were feeling some negative emotions on your questionnaire earlier. Are you still feeling that way?”"
+          },
+          {
+            "tag": "B10",
+            "response": "I’m sorry to hear that you’re feeling that way. Can you tell me more about it? [YES/NO] (present message: if you select yes, you will be given an opportunity to type it out momentarily)"
+          },
+          {
+            "tag": "C12",
+            "response": "Are you sure? Sometimes it can feel good to get it off your chest. However, if you don’t feel comfortable talking about it right now, I can just share some ideas to help you feel better."
+          },
+          {
+            "tag": "B14",
+            "response": "Great! You can tell me anything you would like to."
+          },
+          {
+            "tag": "C14",
+            "response": "That's okay. Let me show you some techniques that can help you manage your negative emotions. [SKIP TO THE ACTIVITY]"
+          },
+          {
+            "tag": "D14",
+            "response": "Great! You can tell me anything you would like to."
+          },
+          {
+            "tag": "E14",
+            "response": "launch into responses for positive emotions."
+          }
+        ]
+      },
+      {
+        "negative": [
+          {
+            "tag": "B8",
+            "response": "I’m sorry to hear that you’re feeling that way. Can you tell me more about it? [YES/NO] (present message: if you select yes, you will be given an opportunity to type it out momentarily)”"
+          },
+          {
+            "tag": "C10",
+            "response": "Are you sure? Sometimes it can feel good to get it off your chest. However, if you don’t feel comfortable talking about it right now, I can just share some ideas to help you feel better."
+          },
+          {
+            "tag": "B12",
+            "response": "Great! You can tell me anything you would like to."
+          },
+          {
+            "tag": "C12",
+            "response": "That's okay. Let me show you some techniques that can help you manage your negative emotions. [SKIP TO THE ACTIVITY]"
+          },
+          {
+            "tag": "D12",
+            "response": "Great! You can tell me anything you would like to."
+          }
+        ]
+      }
+    ]
+  }

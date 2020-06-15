@@ -1,0 +1,198 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+            integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+            crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../static/main.css" />
+
+</head>
+
+<body style="background-color:#006747">
+    <div class="container" style="height:100vh;width:100%;background-color:white ">
+        <div class="row" style="height:5vh; background-color:#CFC493">
+            <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#bgStorySetupModal_index" style="background-color:#4CAF50">Task Information</button>
+
+        </div>
+        <div class="form-group row justify-content-center" style="">
+            <!--<div class="col-lg-6">
+                <img class="chatbotImage" src="../static/images/chatbot.png" />
+            </div>
+            <div class="col-lg-4" style="padding-top:150px">
+                <span id="chatbotOutput" class="chatbotOutput">Talk to me.</span>
+            </div>-->
+
+            <div class="col-lg-6" style=" border:2px solid black;height: 91vh; padding-left:0px !important; padding-right:0px !important">
+                <div class="row" style="height:13vh; background-color:#CFC493; margin-left:0px !important; margin-right:0px !important">
+                    <img height="70" width="70" src="../static/images/chatbot2.jpg" style="margin:4px" />
+                    <h3 style="margin:25px 40px 30px 0px; padding-left:15px; font-family:cursive; font-weight:900">Anna</h3>
+                </div>
+
+                <div id="chatDiv" style="height:58vh;overflow:auto;">
+                    
+                </div>
+
+
+                <div id="userDiv" class=" form-group row justify-content-center" style="height:22vh;overflow:auto; padding-top:10px">
+                    <div id="userInputBlock" class="form-group row " style="width:95vh ;display:none">
+                        <div class="col-lg-10">
+                            <textarea class="form-control inputBar" id="userMessage"  type="text" 
+                                      placeholder="Type here . . ." rows="3"></textarea>
+                            <div id="charNum" style="float:right;font-size:smaller;color:darkgray">0/240</div>
+
+                        </div>
+                        <div class="col-lg-2" style="float:right">
+                            <button class="submit-button" id="submitButton">Submit</button>
+                        </div>
+                    </div>
+
+                    <div id="userEmotionBlock" class="row justify-content-center" style="display:none">
+                        <div class="">
+                            <button type="button" class="btn btn-secondary positive new-button" 
+                                    style="font-size:20px; padding: 16px 32px; background-color:darkgreen; font-weight:600">Good</button>
+                            <button type="button" class="btn btn-secondary negative new-button" 
+                                    style="font-size:20px; padding: 16px 32px; background-color:darkred; font-weight:600">Not Good</button>
+                            
+                            
+                        </div>
+
+                    </div>
+
+                    <div id="yesornoBlock" class="row justify-content-center" style="display:none">
+                        <div class="">
+                            <button type="button" class="btn btn-secondary yes new-button" 
+                                    style="font-size:20px; padding: 16px 32px; background-color:darkgreen; font-weight:600">Yes</button>
+                            <button type="button" class="btn btn-secondary no new-button" 
+                                    style="font-size:20px; padding: 16px 32px; background-color:darkred; font-weight:600">No</button>
+                        </div>
+
+                    </div>
+
+
+                    <div id="okBlock" class="row justify-content-center" style="display:none">
+                        <div class="">
+                            <button type="button" class="btn btn-secondary ok new-button" 
+                                    style="font-size:20px; padding: 16px 32px; font-weight:600">OK</button>
+
+                        </div>
+
+                    </div>
+
+                    <div id="question1" class="row justify-content-center" style="display:none">
+                        
+                            <button type="button" class="col-sm-5 btn btn-secondary ques1 new-button btn-sm " value="1" 
+                                    style="font-size:10px">Very mild</button>
+                            <br />
+                            <button type="button" class="col-sm-5 btn btn-secondary ques1 new-button btn-sm" value="2" 
+                                    style="font-size:10px">Somewhat mild</button>
+                            <br />
+                        
+                            <button type="button" class="col-sm-3 btn btn-secondary btn-sm ques1 new-button" value="3" 
+                                    style="font-size:10px">Moderate</button>
+                            <br />
+                            <button type="button" class="col-sm-3 btn btn-secondary btn-sm ques1 new-button" value="4" 
+                                    style="font-size:10px">Intense</button>
+                            <br />
+                            <button type="button" class="col-sm-3 btn btn-secondary btn-sm ques1 new-button" value="5" 
+                                    style="font-size:10px; white-space: normal;">Extremely Intense</button>
+                        
+                    </div>
+
+                    <div id="question2" class="row justify-content-center" style="display:none">
+                        
+                            <button type="button" class="col-sm-5  btn btn-secondary ques2 new-button" value="1" style="font-size:10px">Not bothersome at all</button>
+                            <br />
+                            <button type="button" class="col-sm-5  btn btn-secondary ques2 new-button" value="2" style="font-size:10px">Only a little bothersome</button>
+                            <br />
+                            <button type="button" class="col-sm-3 btn btn-secondary ques2 new-button" value="3" style="font-size:10px">Moderately bothersome or distressing</button>
+                            <br />
+                            <button type="button" class="col-sm-3 btn btn-secondary ques2 new-button" value="4" style="font-size:10px">Very distressing</button>
+                            <br />
+                            <button type="button" class="col-sm-3 btn btn-secondary ques2 new-button" value="5" style="font-size:10px">Extremely distressing</button>
+                        
+                    </div>
+
+                    <div id="question3" class="row justify-content-center" style="display:none">
+                        
+                            <button type="button" class="col-sm-5 btn btn-secondary ques3 new-button" value="1" style="font-size:10px">I can still concentrate just fine. I’ve found it very easy to push this from my mind when needed</button>
+                            <br />
+                            <button type="button" class="col-sm-5 btn btn-secondary ques3 new-button" value="2" style="font-size:10px">I've occasionally noticed some minimal effects on my concentration</button>
+                            <br />
+                            <button type="button" class="col-sm-3 btn btn-secondary ques3 new-button" value="3" style="font-size:10px">I sometimes find these emotions quite distracting</button>
+                            <br />
+                            <button type="button" class="col-sm-3 btn btn-secondary ques3 new-button" value="4" style="font-size:10px">Quite often, I have difficulty concentrating and getting through tasks because of these emotions</button>
+                            <br />
+                            <button type="button" class="col-sm-3 btn btn-secondary ques3 new-button" value="5" style="font-size:10px">It’s all I can think about lately. I just can't seem to keep my mind off of it and it's almost impossible to focus on my tasks</button>
+                        
+                    </div>
+
+                    <div id="gameBlock" class="row justify-content-center" style="display:none">
+
+                        <ul style="list-style:none">
+                            <li>
+                                <a type="button" class="btn btn-secondary new-button btn-sm"
+                                   style="text-decoration:none;font-size:15px ; font-weight:600; height:40px" target="_blank" href="http://interactive.usc.edu/projects/cloud/flowing/">Flow Game</a>
+
+
+                                <a type="button" class="btn btn-secondary new-button btn-sm"
+                                   style="text-decoration:none;font-size:15px ; font-weight:600; height:40px" target="_blank" href="http://www.ferryhalim.com/orisinal/g3/drift.htm">Drifting Afternoon</a>
+
+
+                                <a type="button" class="btn btn-secondary new-button btn-sm"
+                                   style="text-decoration:none;font-size:15px ; font-weight:600; height:40px" target="_blank" href="https://www.crazygames.com/game/echogenesis">Echogenesis</a>
+                            </li>
+                            <li style="padding-left: 120px;padding-top: 15px;">
+                                <button type="button" class="btn btn-secondary ok new-button"
+                                        style=" font-weight:600;">
+                                    OK
+                                </button>
+                            </li>
+                        </ul>
+                            
+                    </div>
+
+                </div>
+            </div>
+
+            
+        </div>
+        
+
+    </div>
+    <div class="modal fade" id="bgStorySetupModal_index" role="dialog">
+        <div class="modal-dialog modal-lg">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header" style="display:block !important">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Overall Task Description</h4>
+                </div>
+                <div class="modal-body">
+
+                    <p>
+                        <!--<iframe sandbox="allow-same-origin allow-scripts allow-popups allow-forms" 
+                                src = "http://www.ferryhalim.com/orisinal/g3/drift.htm"
+                                name="iFrameName"></iframe>-->
+                        <br />
+                        <br />
+                    </p>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">Ok</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+    <script src="../static/main.js"></script>
+</body>
+
+</html>
