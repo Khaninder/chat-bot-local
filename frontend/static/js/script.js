@@ -7,10 +7,52 @@ document.addEventListener('DOMContentLoaded', function () {
 
 });
 
+//=========== Scroll to the bottom of the chats after new message has been added to chat ============
+function scrollToBottomOfResults() {
+
+	var terminalResultsDiv = document.getElementById("chats");
+	terminalResultsDiv.scrollTop = terminalResultsDiv.scrollHeight;
+}
+
+
+//============== Send a reminder when the user doesn't respond ================
+function sendReminder() {
+	timeout = setTimeout(function () {
+
+		$.ajax({
+			type: "GET",
+			dataType: "json",
+			contentType: "application/json",
+			url: "http://localhost:5005/conversations/user/tracker",
+			async: false,
+			success: function (data) {
+				//events = data.events;
+				var name = data.slots.name;
+				if (name == "" || name == null || name == "null" || name == "Null") {
+					timeoutMsg = "Are you there?";
+				}
+				else {
+					timeoutMsg = "Are you still there, " + name + "?";
+				}		
+			},
+			error: function () {
+				timeoutMsg = "Are you there?";
+			}
+		});
+		var botMsg = document.getElementsByClassName("botMsg");
+		var lastBotMsg = botMsg[botMsg.length - 1].innerHTML;
+		if (lastBotMsg != timeoutMsg) {
+			var BotResponse = '<img class="botAvatar" src="/img/botAvatar.png"/><p class="botMsg">' + timeoutMsg + '</p><div class="clearfix"></div>';
+			$(BotResponse).appendTo(".chats").hide().fadeIn(1000);
+			scrollToBottomOfResults();
+		}
+	}, 60000)
+}
+
 // ========================== greet user proactively ========================
 //initialization
-$(document).ready(function () {
-
+//$(document).ready(function () {
+$("#profile_div").on("click", function () {
 
 	//Bot pop-up intro
 	$("div").removeClass("tap-target-origin")
@@ -25,14 +67,15 @@ $(document).ready(function () {
 
 	//enable this if u have configured the bot to start the conversation. 
 	showBotTyping();
-	$("#userInput").prop('disabled', true);
+	//$("#userInput").prop('disabled', true);
 
 	//global variables
-	action_name = "action_greet_user";
+	//action_name = "action_greet_user";
 	user_id = "user";
 
 	//if you want the bot to start the conversation
-	action_trigger();
+	//action_trigger();
+	botFirst();
 
 })
 
@@ -52,31 +95,44 @@ function restartConversation() {
 }
 
 // ========================== let the bot start the conversation ========================
-function action_trigger() {
+//function action_trigger() {
 
-	// send an event to the bot, so that bot can start the conversation by greeting the user
-	$.ajax({
-		url: 'http://localhost:5005/conversations/${user_id}/execute',
-		type: "POST",
-		contentType: "application/json",
-		data: JSON.stringify({ "name": action_name, "policy": "MappingPolicy", "confidence": "0.98" }),
-		success: function (botResponse, status) {
-			console.log("Response from Rasa: ", botResponse, "\nStatus: ", status);
+//	// send an event to the bot, so that bot can start the conversation by greeting the user
+//	$.ajax({
+//		url: 'http://localhost:5005/conversations/${user_id}/execute',
+//		type: "POST",
+//		contentType: "application/json",
+//		data: JSON.stringify({ "name": action_name, "policy": "MappingPolicy", "confidence": "0.98" }),
+//		success: function (botResponse, status) {
+//			console.log("Response from Rasa: ", botResponse, "\nStatus: ", status);
 
-			if (botResponse.hasOwnProperty("messages")) {
-				setBotResponse(botResponse.messages);
-			}
-			$("#userInput").prop('disabled', false);
-		},
-		error: function (xhr, textStatus, errorThrown) {
+//			if (botResponse.hasOwnProperty("messages")) {
+//				setBotResponse(botResponse.messages);
+//			}
+//			$("#userInput").prop('disabled', false);
+//		},
+//		error: function (xhr, textStatus, errorThrown) {
 
-			// if there is no response from rasa server
-			setBotResponse("");
-			console.log("Error from bot end: ", textStatus);
-			$("#userInput").prop('disabled', false);
-		}
-	});
+//			// if there is no response from rasa server
+//			setBotResponse("");
+//			console.log("Error from bot end: ", textStatus);
+//			$("#userInput").prop('disabled', false);
+//		}
+//	});
+//}
+
+function botFirst() {
+	setTimeout(function () {
+		hideBotTyping();
+		//var firstMsg = "Hello, Bot here!";
+		var arr = ["Hello, Bot here!", "Hey, I'm Bot!", "Hi there! I'm Bot.", "Hey there, it's Bot!"]
+		var BotResponse = '<img class="botAvatar" src="/img/botAvatar.png"/><p class="botMsg">' + arr[Math.floor(Math.random() * arr.length)] + '</p><div class="clearfix"></div>';
+		$(BotResponse).appendTo(".chats").hide().fadeIn(1000);
+		scrollToBottomOfResults();
+		$("#userInput").prop('disabled', false);
+	}, 500);
 }
+
 
 //=====================================	user enter or sends the message =====================
 $(".usrInput").on("keyup keypress", function (e) {
@@ -87,6 +143,7 @@ $(".usrInput").on("keyup keypress", function (e) {
 
 		if (text == "" || $.trim(text) == "") {
 			e.preventDefault();
+			clearTimeout(timeout);
 			return false;
 		} else {
 			//destroy the existing chart, if yu are not using charts, then comment the below lines
@@ -104,6 +161,7 @@ $(".usrInput").on("keyup keypress", function (e) {
 			$(".usrInput").blur();
 			setUserResponse(text);
 			send(text);
+			clearTimeout(timeout);
 			e.preventDefault();
 			return false;
 		}
@@ -114,11 +172,13 @@ $("#sendButton").on("click", function (e) {
 	var text = $(".usrInput").val();
 	if (text == "" || $.trim(text) == "") {
 		e.preventDefault();
+		clearTimeout(timeout);
 		return false;
 	}
 	else {
-		//destroy the existing chart
+		
 
+		//destroy the existing chart
 		chatChart.destroy();
 		$(".chart-container").remove();
 		if (typeof modalChart !== 'undefined') { modalChart.destroy(); }
@@ -130,27 +190,23 @@ $("#sendButton").on("click", function (e) {
 		setUserResponse(text);
 		send(text);
 		e.preventDefault();
+		clearTimeout(timeout);
 		return false;
 	}
 })
 
 //==================================== Set user response =====================================
 function setUserResponse(message) {
-	var UserResponse = '<img class="userAvatar" src=' + "/img/userAvatar.jpg" + '><p class="userMsg">' + message + ' </p><div class="clearfix"></div>';
+	var UserResponse = '<img class="userAvatar" src=' + "/img/userAvatar.png" + '><p class="userMsg">' + message + ' </p><div class="clearfix"></div>';
 	$(UserResponse).appendTo(".chats").show("slow");
 
 	$(".usrInput").val("");
 	scrollToBottomOfResults();
 	showBotTyping();
 	$(".suggestions").remove();
+
 }
 
-//=========== Scroll to the bottom of the chats after new message has been added to chat ======
-function scrollToBottomOfResults() {
-
-	var terminalResultsDiv = document.getElementById("chats");
-	terminalResultsDiv.scrollTop = terminalResultsDiv.scrollHeight;
-}
 
 //============== send the user message to rasa server =============================================
 function send(message) {
@@ -172,7 +228,7 @@ function send(message) {
 				return;
 			}
 			setBotResponse(botResponse);
-
+			
 		},
 		error: function (xhr, textStatus, errorThrown) {
 
@@ -189,6 +245,7 @@ function send(message) {
 			console.log("Error from bot end: ", textStatus);
 		}
 	});
+	
 }
 
 //=================== set bot response in the chats ===========================================
@@ -199,18 +256,21 @@ function setBotResponse(response) {
 		hideBotTyping();
 		if (response.length < 1) {
 			//if there is no response from Rasa, send  fallback message to the user
-			var fallbackMsg = "I am facing some issues, please try again later!!!";
+			clearTimeout(timeout);
+			var fallbackMsg = "I am facing some issues :( Please try again later!";
 
 			var BotResponse = '<img class="botAvatar" src="/img/botAvatar.png"/><p class="botMsg">' + fallbackMsg + '</p><div class="clearfix"></div>';
 
 			$(BotResponse).appendTo(".chats").hide().fadeIn(1000);
 			scrollToBottomOfResults();
+
+			clearTimeout(timeout);
 		}
 		else {
+		
 
 			//if we get response from Rasa
 			for (i = 0; i < response.length; i++) {
-
 				//check if the response contains "text"
 				if (response[i].hasOwnProperty("text")) {
 					var BotResponse = '<img class="botAvatar" src="/img/botAvatar.png"/><p class="botMsg">' + response[i].text + '</p><div class="clearfix"></div>';
@@ -293,6 +353,10 @@ function setBotResponse(response) {
 			scrollToBottomOfResults();
 		}
 	}, 500);
+
+	//if the user hasn't responded within 60 seconds, send a reminder
+	sendReminder();
+
 }
 
 //====================================== Toggle chatbot =======================================

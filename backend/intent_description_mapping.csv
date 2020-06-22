@@ -1,0 +1,8 @@
+intent,button,entities
+greet,Hello,
+goodbye,Bye,
+affirm,Yes,
+deny,No,
+mood_great,I feel good,
+mood_unhappy,I feel bad,
+bot_challenge,Are you a bot?,

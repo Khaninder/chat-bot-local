@@ -7,34 +7,34 @@ body {
 
 .widget {
 	display: none;
-	width: 350px;
-	right: 15px;
-	height: 500px;
-	bottom: 5%;
 	position: fixed;
+	bottom: 10%;
+	top: 10%;
+	left: 20%;
+	right: 20%;
 	background: #f7f7f7;
 	border-radius: 10px 10px 10px 10px;
 	box-shadow: 0px 2px 10px 1px #b5b5b5;
+	margin: auto;
 }
 
 .chat_header {
 	height: 60px;
-	background: rgb(68, 61, 177);
+	background: #006747;
 	border-radius: 10px 10px 0px 0px;
-	padding: 5px;
+	padding: 15px 0;
 	font-size: 20px;
+	text-align: center;
+	margin: auto;
 }
 
 .chat_header_title {
 	color: white;
-	float: left;
-	margin-top: 3%;
-	margin-left: 35%;
 }
 
 .chats {
 	/* display: none; */
-	height: 385px;
+	height: 540px;
 	padding: 2px;
 	border-radius: 1px;
 	overflow-y: scroll;
@@ -51,31 +51,31 @@ div.chats::-webkit-scrollbar {
 }
 
 .clearfix {
-	margin-top: 2px;
-	margin-bottom: 2px;
+	margin-top: 5px;
+	margin-bottom: 5px;
 }
 
 .botAvatar {
 	border-radius: 50%;
-	width: 1.5em;
-	height: 1.5em;
+	width: 45px;
+	height: 45px;
 	float: left;
-	margin-left: 5px;
+	margin-left: 10px;
 	/* border: 2px solid  #2c53af ; */
 }
 
 .botMsg {
 	float: left;
 	margin-top: 5px;
+	margin-bottom: 5px;
 	background: white;
 	color: black;
 	box-shadow: 2px 3px 9px 0px #9a82842e;
-	margin-left: 0.5em;
-	padding: 10px;
-	border-radius: 1.5em;
+	margin-left: 10px;
+	padding: 14px 16px;
 	max-width: 60%;
-	min-width: 25%;
-	font-size: 13px;
+	min-width: 10%;
+	font-size: 16px;
 	word-wrap: break-word;
 	border-radius: 0 20px 20px 20px;
 }
@@ -100,16 +100,16 @@ textarea-webkit-scrollbar {
 	animation: animateElement linear 0.2s;
 	animation-iteration-count: 1;
 	margin-top: 5px;
+	margin-bottom: 5px;
 	word-wrap: break-word;
-	padding: 10px;
+	padding: 14px 16px;
 	float: right;
-	margin-right: 0.5em;
-	background: #443db1;
+	margin-right: 10px;
+	background: #006747;
 	color: white;
-	margin-bottom: 0.15em;
-	font-size: 13px;
-	max-width: 65%;
-	min-width: 15%;
+	font-size: 16px;
+	max-width: 60%;
+	min-width: 10%;
 	border-radius: 20px 0px 20px 20px;
 	box-shadow: 0px 2px 5px 0px #9a828454;
 }
@@ -118,30 +118,30 @@ textarea-webkit-scrollbar {
 	animation: animateElement linear 0.3s;
 	animation-iteration-count: 1;
 	border-radius: 50%;
-	width: 1.5em;
-	height: 1.5em;
+	width: 40px;
+	height: 40px;
 	float: right;
-	margin-right: 5px;
+	margin-right: 10px;
 	/* border: 2px solid  #2c53af ; */
 }
 
 .usrInput {
 	padding: 0.5em;
 	width: 80%;
-	margin-left: 4%;
 	border: 0;
 	padding-left: 15px;
 	height: 40px;
+	font-size: 16px;
 }
 
 .keypad {
 	/* display: none;  */
 	background: white;
-	height: 50px;
+	height: 60px;
 	position: absolute;
 	bottom: 0px;
 	width: 100%;
-	padding: 5px;
+	padding: 15px;
 	border-radius: 0px 0px 10px 10px;
 }
 
@@ -156,7 +156,7 @@ textarea-webkit-scrollbar {
 	padding: 5px;
 	font-size: 20px;
 	cursor: pointer;
-	color: #2b2bab;
+	color: #005432;
 }
 
 .imgProfile {
@@ -191,12 +191,11 @@ textarea-webkit-scrollbar {
 	color: white;
 	margin-right: 5px;
 	float: right;
-	margin-top: 3%;
 }
 
-.dropdown-content li>a,
-.dropdown-content li>span {
-	color: #443db1;
+.dropdown-content li > a,
+.dropdown-content li > span {
+	color: #006747;
 }
 
 @keyframes animateElement {
@@ -267,7 +266,7 @@ textarea-webkit-scrollbar {
 
 .ratings {
 	margin-top: 5px;
-	background: #9ACD32;
+	background: #9CCB3B;
 	padding: 5px;
 	color: white;
 	border-radius: 5px;
@@ -327,7 +326,7 @@ textarea-webkit-scrollbar {
 }
 
 .fa .fa-user-o {
-	font-size: 15px;
+	font-size: 17px;
 }
 
 .stars-outer {
@@ -390,7 +389,7 @@ div.content_data::-webkit-scrollbar {
 
 .suggestions {
 	padding: 5px;
-	width: 80%;
+	width: 40%;
 	border-radius: 10px;
 	background: #ffffff;
 	box-shadow: 2px 5px 5px 1px #dbdade;
@@ -720,21 +719,22 @@ ul.collapsible>li:last-child .collapsible-body {
 .botTyping {
 	float: left;
 	margin-top: 5px;
+	margin-bottom: 5px;
 	background: white;
 	color: #2c53af;
 	box-shadow: 2px 3px 9px 0px #9a82847a;
 	margin-left: 0.5em;
-	padding: 15px;
+	padding: 21px;
 	border-radius: 0 20px 20px 20px;
 	max-width: 60%;
-	min-width: 20%;
+	min-width: 0%;
 	word-wrap: break-word;
 	border-radius: 0 20px 20px 20px;
 }
 
 .botTyping>div {
-	width: 10px;
-	height: 10px;
+	width: 12px;
+	height: 12px;
 	background-color: #2c53af;
 	border-radius: 100%;
 	display: inline-block;

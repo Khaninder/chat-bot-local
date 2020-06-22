@@ -1,4 +1,4 @@
-## intent:greet
+﻿## intent:greet
 - hey
 - hello
 - hi
@@ -8,12 +8,12 @@
 
 ## intent:introduction
 - my name is [Alex](name)
-- my name's [Mary](name)
+- my name's [mary](name)
 - call me [Kevin](name)
 - [James](name)
 - it's [Sarah](name)
 - people call me [Christopher](name)
-- [Daniel](name) is my name
+- [daniel](name) is my name
 
 ## intent:goodbye
 - bye
@@ -81,3 +81,4 @@
 ## intent:insult
 - stupid bot
 - I don't want to talk to you
+

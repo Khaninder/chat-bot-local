@@ -54,3 +54,7 @@
 ## insult
 * insult
   - utter_respond_insult
+
+## fallback story
+* out_of_scope
+  - action_default_ask_rephrase

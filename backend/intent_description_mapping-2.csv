@@ -1,0 +1,113 @@
+intent,button
+greet,Hello
+greet_whatsup,whats up? 
+user_is_angry,I'm angry
+user_is_back,I am back
+user_say_usersname,What is my name?
+greets_goodevening,good evening
+greets_goodnight,good night
+greets_goodmorning,Good  morning!
+greets_nice_to_meet_you,Nice to meet you
+greets_nice_to_see_you,Nice to see you 
+greets_nice_to_talk_to_you,Nice to talk to you
+user_is_going_to_bed,let's go to bed!
+user_ask_about_bot,What is your name?
+user_says_wow,wow wow
+user_ask_bot_orgin,where did you come from?
+user_say_bot_is_beautiful,you are so beautiful today
+user_ask_bot_to_be_clever,be smarter
+user_ask_bot_age,how old are you
+user_ask_bot_birth_date,what's your birthday?
+user_asks_is_bot_there,are you there
+user_will_be_back,I'll be back!
+user_want_to_talk,can you talk with me?
+user_ask_is_bot_sure,are you sure now!
+user_says_bot_is_right,you're definitely right
+user_asks_bot_residence,where's your home
+user_ask_bot_occupation,what is your work
+user_ask_is_bot_ready,are you ready?
+user_ask_is_bot_busy,are you busy ?
+user_ask_builder,who is your master
+user_asks_bot_help,Can you help me?
+user_asks_bot_is_friend,Are you a friend to me?
+user_say_bot_boring,you're so boring.
+user_ask_bot_marry_user,let's get married
+user_ask_bot_hungry,Are you hungry?
+user_ask_bot_hobby,what's your hobby
+user_ask_if_bot_happy,are you happy today?
+user_asks_how_are_you,how are you?
+user_ask_bot_is_robot,Are you human or machine?
+user_laughs,haha
+user_is_good,I am good
+user_says_its_wrong,that was wrong
+user_asks_what_do_you_mean,is that what you mean?
+user_says_sorry,I'm sorry
+user_says_i_dont_care,not caring at all
+user_want_hug,wanna hug?
+user_ask_to_wait,could you wait?
+user_confirmation_yes,Yes 
+user_confirmation_no,No
+user_confirmation_cancel,cancel that one
+user_says_well_done,great work
+user_says_welcome,you're so welcome
+user_is_sad,I am sad!
+user_is_testing_bot,I want to test you
+user_is_tired,I've overworked
+user_want_to_see_bot_again,I'd be happy to see you again
+user_is_waiting,still waiting!
+user_is_sleepy,I want to sleep!
+user_is_happy,I'm happy to see you
+user_has_birthday_today,I'm celebrating my birthday today
+user_is_here,here I am
+user_is_joking,just kidding!
+user_likes_bot,I like you very much
+user_misses_bot,I miss you!
+user_is_lonely,I am lonely
+user_is_bored,bored
+user_loves_bot,I love you.
+user_needs_advice,I need advice
+user_is_busy,I'm busy
+what_user_look_like,What do I look like?
+user_not_want_to_talk,I don't want to talk
+user_say_thank_you,Thank you
+user_say_no_problem,No problem
+user_say_bot_good,You are good
+user_say_bot_funny,You are very funny
+user_say_bot_bad,You are not good
+user_say_bot_fired,You are fired
+user_can_not_sleep,I can't sleep
+user_say_bot_clever,You're  smart
+user_saying_bot_crazy,Are you mad
+user_saying_good_answer,That's great
+user_is_excited,I'm  excited
+bot_answer_my_question,Answer me
+user_find_bot_annoying,You are annoying
+user_saying_bad_answer,That's a bad answer
+math,A mathematical question?
+arts_sports,Can you do something?
+user_ask_languagesbot,Which languages do you speak?
+user_ask_whatisusername,What is my name?
+user_ask_whoami,Who am I?
+ask_time,What is the current time?
+ask_weather,How is the weather today?
+ask_what_can_bot_do,What can you do?
+user_say_bot_canthelp,You Cant help?
+user_ask_exam_results,To ask exam result.
+goodbye,Goodbye
+user_ask_curriculum,To ask curriculum?
+user_ask_can_bot_understand,Can you understand?
+ask_cms_info,I want to know about cms college.
+ask_cms_contact,How can i contact cms college?
+ask_cms_location,Where is cms?
+user_is_complaining_college,To register a complaint?
+user_ask_about_fine_amount,How much is fine?
+user_ask_programs_offered,What are the programs offered by cms?
+user_ask_admission_details,How can i get admission here?
+user_ask_employee_details,To ask employee information.
+user_ask_where_to_pay_fees,Where can i pay fees?
+user_ask_fees_concession,Do i get a concession for fees?
+user_ask_fees_date,When should i pay fees?
+user_ask_fees_amount,What is fees amount?
+user_want_to_pay_fees,How can i pay the fees
+user_ask_event_details,Show me the recent events
+user_ask_exam_timetable,Date of exam?

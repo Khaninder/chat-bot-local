@@ -1,0 +1,20 @@
+<html>
+<head>
+    <title>Botfront</title>
+</head>
+<body>
+    <div id="webchat">
+        <script>
+            WebChat.default.init({
+                selector: "#webchat",
+                initPayload: "/get_started",
+                customData: { "language": "en" }, // arbitrary custom data. Stay minimal as this will be added to the socket
+                socketUrl: "http://localhost:5006",
+                socketPath: "/socket.io/",
+                title: "Title",
+                subtitle: "Subtitle",
+            })
+        </script>
+    </div>
+</body>
+</html>
