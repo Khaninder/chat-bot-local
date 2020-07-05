@@ -1,4 +1,4 @@
-﻿## intent:greet
+## intent:greet
 - hey
 - hello
 - hi
@@ -14,6 +14,9 @@
 - it's [Sarah](name)
 - people call me [Christopher](name)
 - [daniel](name) is my name
+- I'm [Jackie](name)
+- I'm [Martin](name)
+- my names [Jeff](name)
 
 ## intent:goodbye
 - bye
@@ -28,6 +31,20 @@
 - that sounds good
 - correct
 - ok
+- alright
+- I can
+- maybe
+- ok here
+- listen
+- yea
+- ya
+- yeah
+- okay
+- sure
+- yep
+- yup
+- yas
+- no problem
 
 ## intent:deny
 - no
@@ -36,6 +53,10 @@
 - don't like that
 - no way
 - not really
+- I don't want to
+- nah
+- na
+- nope
 
 ## intent:mood_great
 - perfect
@@ -71,6 +92,29 @@
 - not good
 - so so
 - could be better
+
+## intent:skip_to_activity
+- yes, I'm sure. Let's skip to the activity
+- skip
+- activity
+- i am sure
+- i don't want to tell
+- just skip
+- i don't wanna talk
+- won't tell
+- don't want
+- not tell
+- i dont wanna talk
+- no talk
+- i don't wanna
+- dont want to tell
+
+## intent:tell_more
+- no, I'd actually like to tell you about it
+- ok i will tell you more
+- will tell
+- can tell
+- like to tell you more
 
 ## intent:bot_challenge
 - are you a bot?

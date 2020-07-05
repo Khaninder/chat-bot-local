@@ -6,42 +6,117 @@
   - utter_ask_how_doing
 > check_asked_mood
 
-## happy path 1
+## good mood positive panas affirmed chat
 > check_asked_mood
 * mood_great
   - action_get_panas_score
   - slot{"panas_score" : "1"}
-  - utter_happy
+  - utter_happy_offer_chat
+* affirm
+  - utter_venting_group
+> check_venting_group
 
-## happy path 2
+## good mood positive panas denied chat
+> check_asked_mood
+* mood_great
+  - action_get_panas_score
+  - slot{"panas_score" : "1"}
+  - utter_happy_offer_chat
+* deny
+  - utter_denied_chat
+> check_non-venting_group
+
+## good mood negative panas not bad anymore affirmed chat
 > check_asked_mood
 * mood_great
   - action_get_panas_score
   - slot{"panas_score" : "0"}
-  - utter_ask_why_bad
-* goodbye
-  - utter_goodbye
+  - utter_negative_panas
+* deny
+  - utter_happy_offer_chat
+* affirm
+  - utter_venting_group
+> check_venting_group
 
-## sad path 1
+## good mood negative panas not bad anymore denied chat
+> check_asked_mood
+* mood_great
+  - action_get_panas_score
+  - slot{"panas_score" : "0"}
+  - utter_negative_panas
+* deny
+  - utter_happy_offer_chat
+* deny
+  - utter_denied_chat
+> check_non-venting_group
+
+## good mood negative panas still bad affirmed
+> check_asked_mood
+* mood_great
+  - action_get_panas_score
+  - slot{"panas_score" : "0"}
+  - utter_negative_panas
+* affirm
+  - utter_ask_why_bad
+* affirm
+  - utter_venting_group
+> check_venting_group
+
+## good mood negative panas still bad denied skip to activity
+> check_asked_mood
+* mood_great
+  - action_get_panas_score
+  - slot{"panas_score" : "0"}
+  - utter_negative_panas
+* affirm
+  - utter_ask_why_bad
+* deny
+  - utter_denied_why_bad
+* skip_to_activity
+  - utter_skip_to_activity
+> check_non-venting_group
+
+## good mood negative panas still bad denied tell more
+> check_asked_mood
+* mood_great
+  - action_get_panas_score
+  - slot{"panas_score" : "0"}
+  - utter_negative_panas
+* affirm
+  - utter_ask_why_bad
+* deny
+  - utter_denied_why_bad
+* tell_more
+  - utter_venting_group
+> check_venting_group
+
+## bad mood denied skip to activity
+> check_asked_mood
+* mood_unhappy
+  - utter_ask_why_bad
+* deny
+  - utter_denied_why_bad
+* skip_to_activity
+  - utter_skip_to_activity
+> check_non-venting_group
+
+## bad mood denied tell more
+> check_asked_mood
+* mood_unhappy
+  - utter_ask_why_bad
+* deny
+  - utter_denied_why_bad
+* tell_more
+  - utter_venting_group
+> check_venting_group
+
+## bad mood affirmed
 > check_asked_mood
 * mood_unhappy
   - utter_ask_why_bad
 * affirm
-  - utter_happy
-
-## sad path 2
-> check_asked_mood
-* mood_unhappy
-  - utter_ask_why_bad
-* deny
-  - utter_goodbye
-
-## sad path 3
-> check_asked_mood
-* mood_unhappy
-  - utter_ask_why_bad
-* deny
-  - utter_goodbye
+  - utter_venting_group
+> check_venting_group
 
 ## say goodbye
 * goodbye
