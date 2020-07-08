@@ -126,3 +126,30 @@
 - stupid bot
 - I don't want to talk to you
 
+## intent:emotion_intensity
+- [1](emotion_intensity)
+- [2](emotion_intensity)
+- [3](emotion_intensity)
+- [4](emotion_intensity)
+- [5](emotion_intensity)
+
+## intent:emotion_bother
+- [1](emotion_bother)
+- [2](emotion_bother)
+- [3](emotion_bother)
+- [4](emotion_bother)
+- [5](emotion_bother)
+
+## intent:emotion_impact
+- [1](emotion_impact)
+- [2](emotion_impact)
+- [3](emotion_impact)
+- [4](emotion_impact)
+- [5](emotion_impact)
+
+## intent:share_problems
+- problem
+- my problem is about
+- it is about
+- all because
+- one thing is that

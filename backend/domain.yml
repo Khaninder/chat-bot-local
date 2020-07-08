@@ -10,11 +10,18 @@
   - insult
   - skip_to_activity
   - tell_more
+  - emotion_intensity
+  - emotion_bother
+  - emotion_impact
+  - share_problems
   - out_of_scope:
       triggers: action_default_ask_rephrase
 
 entities:
   - name
+  - emotion_intensity
+  - emotion_bother
+  - emotion_impact
   
 slots:
   name:
@@ -24,12 +31,25 @@ slots:
     values:
     - 1
     - 0
+  emotion_intensity:
+    type: float
+  emotion_bother:
+    type: float
+  emotion_impact:
+    type: float
+  severity_score:
+    type: categorical
+    values:
+    - 1
+    - 2
+    - 3
 
 actions:
   - action_get_panas_score
   - action_default_ask_affirmation
   - action_default_fallback
   - action_default_ask_rephrase
+  - action_severity_score
 
 responses:
   utter_greet:
@@ -61,14 +81,6 @@ responses:
   - text: "How are you?"
   - text: "How are you today?"
 
-  utter_ask_color:
-  - text: "what color would you like?"
-    buttons:
-    - title: "blue"
-      payload: '/choose{"color": "blue"}'
-    - title: "red"
-      payload: '/choose{"color": "red"}'
-
   utter_negative_panas:
   - text: "Good! It's great to hear that. I noticed you indicated that you were feeling some negative emotions on your questionnaire earlier. Are you still feeling that way?"
 
@@ -92,8 +104,56 @@ responses:
   utter_venting_group:
   - text: "I'm glad to hear that you feel comfortable telling me about it. I'll give you an opportunity to do so in just a moment. First, I just have a few questions for you."
 
+  utter_how_intense:
+  - text: "How intense have these emotions been for you?"
+    buttons:
+    - title: "Very mild"
+      payload: '/emotion_intensity{"emotion_intensity": 1}'
+    - title: "Somewhat mild"
+      payload: '/emotion_intensity{"emotion_intensity": 2}'
+    - title: "Moderate"
+      payload: '/emotion_intensity{"emotion_intensity": 3}'
+    - title: "Intense"
+      payload: '/emotion_intensity{"emotion_intensity": 4}'
+    - title: "Extremely intense"
+      payload: '/emotion_intensity{"emotion_intensity": 5}'
+
+  utter_how_bothered:
+  - text: "How much have these emotions bothered you?"
+    buttons:
+    - title: "Not bothersome at all"
+      payload: '/emotion_bother{"emotion_bother": 1}'
+    - title: "Only a little bothersome"
+      payload: '/emotion_bother{"emotion_bother": 2}'
+    - title: "Moderately bothersome or distressing"
+      payload: '/emotion_bother{"emotion_bother": 3}'
+    - title: "Very distressing"
+      payload: '/emotion_bother{"emotion_bother": 4}'
+    - title: "Extremely distressing"
+      payload: '/emotion_bother{"emotion_bother": 5}'
+
+  utter_how_impacted:
+  - text: "How much have these feelings impacted your concentration or ability to focus your attention on tasks?"
+    buttons:
+    - title: "I can still concentrate just fine. I've found it very easy to push this from my mind when needed"
+      payload: '/emotion_impact{"emotion_impact": 1}'
+    - title: "I've occasionally noticed some minimal effects on my concentration"
+      payload: '/emotion_impact{"emotion_impact": 2}'
+    - title: "I sometimes find these emotions quite distracting"
+      payload: '/emotion_impact{"emotion_impact": 3}'
+    - title: "Quite often, I have difficulty concentrating and getting through tasks because of these emotions"
+      payload: '/emotion_impact{"emotion_impact": 4}'
+    - title: "It’s all I can think about lately. I just can't seem to keep my mind off of it and its almost impossible to focus on my tasks"
+      payload: '/emotion_impact{"emotion_impact": 5}'
+
+  utter_thanks_for_answering:
+  - text: Thanks for answering those questions for me, {name}. Now, you can go ahead and tell me about what's been going on. You can tell me more about the way you're feeling and why.
+
   utter_skip_to_activity:
   - text: "Okay. I'd like to show you a simple technique that can help you manage your negative emotions."
+
+  utter_after_severity_score:
+  - text: "Is there anything else? Anything you'd like to add?"
 
   utter_iamabot:
   - text: "I am a bot, powered by Rasa."

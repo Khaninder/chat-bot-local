@@ -219,3 +219,26 @@ class ActionDefaultAskRephrase(Action):
         dispatcher.utter_message(template="utter_ask_rephrase")
 
         return []
+
+
+
+class ActionSeverityScore(Action):
+    def name(self) -> Text:
+        return "action_severity_score"
+
+    def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+        emotion_intensity = tracker.get_slot('emotion_intensity')
+        emotion_bother = tracker.get_slot('emotion_bother')
+        emotion_impact = tracker.get_slot('emotion_impact')
+        score = emotion_intensity + emotion_bother + emotion_impact
+        if score <= 6:
+            dispatcher.utter_message(text="Even though this hasn't taken a huge toll on you, I'm sure it’s still hard to be dealing with these feelings. I'm really glad you shared this with me.")
+            return [SlotSet("severity_score", "1")]
+        elif 7 <= score <= 11:
+            dispatcher.utter_message(text="That sounds really tough. I can see why it's got you feeling this way.")
+            return [SlotSet("severity_score", "2")]
+        elif score >= 12:
+            dispatcher.utter_message(text="It sounds like this has been really upsetting and I can see why. The way you're feeling right now is totally valid.")
+            return [SlotSet("severity_score", "3")]
+        else:
+            return []

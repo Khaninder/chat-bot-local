@@ -14,6 +14,9 @@
   - utter_happy_offer_chat
 * affirm
   - utter_venting_group
+  - utter_how_intense
+  - utter_how_bothered
+  - utter_how_impacted
 > check_venting_group
 
 ## good mood positive panas denied chat
@@ -36,6 +39,13 @@
   - utter_happy_offer_chat
 * affirm
   - utter_venting_group
+  - utter_how_intense
+* emotion_intensity
+  - utter_how_bothered
+* emotion_bother
+  - utter_how_impacted
+* emotion_impact
+  - utter_thanks_for_answering
 > check_venting_group
 
 ## good mood negative panas not bad anymore denied chat
@@ -60,6 +70,13 @@
   - utter_ask_why_bad
 * affirm
   - utter_venting_group
+  - utter_how_intense
+* emotion_intensity
+  - utter_how_bothered
+* emotion_bother
+  - utter_how_impacted
+* emotion_impact
+  - utter_thanks_for_answering
 > check_venting_group
 
 ## good mood negative panas still bad denied skip to activity
@@ -88,6 +105,13 @@
   - utter_denied_why_bad
 * tell_more
   - utter_venting_group
+  - utter_how_intense
+* emotion_intensity
+  - utter_how_bothered
+* emotion_bother
+  - utter_how_impacted
+* emotion_impact
+  - utter_thanks_for_answering
 > check_venting_group
 
 ## bad mood denied skip to activity
@@ -108,6 +132,13 @@
   - utter_denied_why_bad
 * tell_more
   - utter_venting_group
+  - utter_how_intense
+* emotion_intensity
+  - utter_how_bothered
+* emotion_bother
+  - utter_how_impacted
+* emotion_impact
+  - utter_thanks_for_answering
 > check_venting_group
 
 ## bad mood affirmed
@@ -116,7 +147,20 @@
   - utter_ask_why_bad
 * affirm
   - utter_venting_group
+  - utter_how_intense
+* emotion_intensity
+  - utter_how_bothered
+* emotion_bother
+  - utter_how_impacted
+* emotion_impact
+  - utter_thanks_for_answering
 > check_venting_group
+
+## venting group
+> check_venting_group
+* share_problems
+  - action_severity_score
+  - utter_after_severity_score
 
 ## say goodbye
 * goodbye
@@ -133,3 +177,4 @@
 ## fallback story
 * out_of_scope
   - action_default_ask_rephrase
+
