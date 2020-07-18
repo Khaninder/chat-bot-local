@@ -43,12 +43,6 @@ app.get('/panas', function(req, res) {
     res.sendFile(__dirname + '/panas.html');
 });
 
-//app.post('http://chatbot_ui:3000/ajax_check', function (req, res) {
-//    var panasscore = req.body.score;
-//    let data = JSON.stringify({ score: panasscore });
-//    fs.writeFileSync('panas.json', data);
-//})
-
 app.post('/panas-score', function(req, res) {
     global.panasscore = req.body;
     console.log(global.panasscore);

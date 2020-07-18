@@ -17,6 +17,7 @@
 - I'm [Jackie](name)
 - I'm [Martin](name)
 - my names [Jeff](name)
+- Darya
 
 ## intent:goodbye
 - bye
@@ -122,34 +123,84 @@
 - am I talking to a bot?
 - am I talking to a human?
 
-## intent:insult
+## intent:share_problems
+- [very mild]{"entity": "emotion_intensity", "value": "low"}
+- [pretty chill]{"entity": "emotion_intensity", "value": "low"} about
+- [not that important]{"entity": "emotion_intensity", "value": "low"}
+- [don't feel intense]{"entity": "emotion_intensity", "value": "low"}
+- [somewhat mild]{"entity": "emotion_intensity", "value": "low"} feeling
+- [moderate](emotion_intensity)
+- i feel [intense]{"entity": "emotion_intensity", "value": "high"}
+- [very anxious]{"entity": "emotion_intensity", "value": "high"}
+- [extremely intense]{"entity": "emotion_intensity", "value": "high"}
+- [very angry]{"entity": "emotion_intensity", "value": "high"} about
+- [not bothersome]{"entity": "emotion_bother", "value": "a little"} at all
+- [only a little bothersome]{"entity": "emotion_bother", "value": "a little"}
+- [moderately bothersome or distressing]{"entity": "emotion_bother", "value": "moderately"}
+- [very distressing]{"entity": "emotion_bother", "value": "a lot"}
+- [extremely distressing]{"entity": "emotion_bother", "value": "a lot"}
+- I can still concentrate [just fine]{"entity": "emotion_impact", "value": "low"}
+- I've found it [very easy to push]{"entity": "emotion_impact", "value": "low"} this from my mind when needed
+- [I've occasionally noticed some minimal effects on my concentration]{"entity": "emotion_impact", "value": "low"}
+- [I sometimes find these emotions quite distracting]{"entity": "emotion_impact", "value": "moderate"}
+- [quite often, I have difficulty concentrating]{"entity": "emotion_impact", "value": "high"}
+- [Hard to get through tasks]{"entity": "emotion_impact", "value": "high"} because of these emotions
+- [it’s all I can think about]{"entity": "emotion_impact", "value": "high"} lately
+- I just can't seem to keep my mind off of it and its almost [impossible to focus]{"entity": "emotion_impact", "value": "high"} on my tasks
+- i had a bad day at work
+- [very intense](emotion_intensity)
+
+## intent:out_of_scope
+- that's not what I want to do
+- wait stop
+- you're no help
+- this is no help at all
+- how old are you
+- I want to order a pizza
+- tell me the weather
+- this isn't working
+- I already told you that
+- don't like that
+- I don't want to tell you that
+- none of your business
+- that's not right
+- stop asking
+- nevermind
+- I want to do something else
+- I changed my mind
 - stupid bot
 - I don't want to talk to you
 
-## intent:emotion_intensity
-- [1](emotion_intensity)
-- [2](emotion_intensity)
-- [3](emotion_intensity)
-- [4](emotion_intensity)
-- [5](emotion_intensity)
+## synonym:a little
+- not bothersome
+- only a little bothersome
 
-## intent:emotion_bother
-- [1](emotion_bother)
-- [2](emotion_bother)
-- [3](emotion_bother)
-- [4](emotion_bother)
-- [5](emotion_bother)
+## synonym:a lot
+- very distressing
+- extremely distressing
 
-## intent:emotion_impact
-- [1](emotion_impact)
-- [2](emotion_impact)
-- [3](emotion_impact)
-- [4](emotion_impact)
-- [5](emotion_impact)
+## synonym:high
+- intense
+- very anxious
+- extremely intense
+- very angry
+- quite often, I have difficulty concentrating
+- Hard to get through tasks
+- it’s all I can think about
+- impossible to focus
 
-## intent:share_problems
-- problem
-- my problem is about
-- it is about
-- all because
-- one thing is that
+## synonym:low
+- very mild
+- pretty chill
+- not that important
+- don't feel intense
+- somewhat mild
+- just fine
+- very easy to push
+- I've occasionally noticed some minimal effects on my concentration
+
+## synonym:moderate
+- I sometimes find these emotions quite distracting
+
+## synonym:moderately
+- moderately bothersome or distressing

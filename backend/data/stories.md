@@ -14,9 +14,14 @@
   - utter_happy_offer_chat
 * affirm
   - utter_venting_group
-  - utter_how_intense
-  - utter_how_bothered
-  - utter_how_impacted
+> check_venting_group
+
+## good mood positive panas affirmed chat
+> check_asked_mood
+* mood_great
+  - action_get_panas_score
+  - slot{"panas_score" : "1"}
+  - utter_happy_offer_chat
 > check_venting_group
 
 ## good mood positive panas denied chat
@@ -39,13 +44,16 @@
   - utter_happy_offer_chat
 * affirm
   - utter_venting_group
-  - utter_how_intense
-* emotion_intensity
-  - utter_how_bothered
-* emotion_bother
-  - utter_how_impacted
-* emotion_impact
-  - utter_thanks_for_answering
+> check_venting_group
+
+## good mood negative panas not bad anymore affirmed chat
+> check_asked_mood
+* mood_great
+  - action_get_panas_score
+  - slot{"panas_score" : "0"}
+  - utter_negative_panas
+* deny
+  - utter_happy_offer_chat
 > check_venting_group
 
 ## good mood negative panas not bad anymore denied chat
@@ -70,13 +78,16 @@
   - utter_ask_why_bad
 * affirm
   - utter_venting_group
-  - utter_how_intense
-* emotion_intensity
-  - utter_how_bothered
-* emotion_bother
-  - utter_how_impacted
-* emotion_impact
-  - utter_thanks_for_answering
+> check_venting_group
+
+## good mood negative panas still bad affirmed
+> check_asked_mood
+* mood_great
+  - action_get_panas_score
+  - slot{"panas_score" : "0"}
+  - utter_negative_panas
+* affirm
+  - utter_ask_why_bad
 > check_venting_group
 
 ## good mood negative panas still bad denied skip to activity
@@ -105,13 +116,18 @@
   - utter_denied_why_bad
 * tell_more
   - utter_venting_group
-  - utter_how_intense
-* emotion_intensity
-  - utter_how_bothered
-* emotion_bother
-  - utter_how_impacted
-* emotion_impact
-  - utter_thanks_for_answering
+> check_venting_group
+
+## good mood negative panas still bad denied tell more
+> check_asked_mood
+* mood_great
+  - action_get_panas_score
+  - slot{"panas_score" : "0"}
+  - utter_negative_panas
+* affirm
+  - utter_ask_why_bad
+* deny
+  - utter_denied_why_bad
 > check_venting_group
 
 ## bad mood denied skip to activity
@@ -132,13 +148,14 @@
   - utter_denied_why_bad
 * tell_more
   - utter_venting_group
-  - utter_how_intense
-* emotion_intensity
-  - utter_how_bothered
-* emotion_bother
-  - utter_how_impacted
-* emotion_impact
-  - utter_thanks_for_answering
+> check_venting_group
+
+## bad mood denied tell more
+> check_asked_mood
+* mood_unhappy
+  - utter_ask_why_bad
+* deny
+  - utter_denied_why_bad
 > check_venting_group
 
 ## bad mood affirmed
@@ -147,20 +164,32 @@
   - utter_ask_why_bad
 * affirm
   - utter_venting_group
-  - utter_how_intense
-* emotion_intensity
-  - utter_how_bothered
-* emotion_bother
-  - utter_how_impacted
-* emotion_impact
-  - utter_thanks_for_answering
+> check_venting_group
+
+## bad mood affirmed
+> check_asked_mood
+* mood_unhappy
+  - utter_ask_why_bad
 > check_venting_group
 
 ## venting group
 > check_venting_group
 * share_problems
-  - action_severity_score
-  - utter_after_severity_score
+  - severity_form
+  - form{"name": "severity_form"}
+  - form{"name": null}
+  - utter_slots_values
+
+## venting group
+> check_venting_group
+* share_problems
+  - severity_form
+  - form{"name": "severity_form"}
+* out_of_scope
+  - severity_form
+  - form{"name": "severity_form"}
+  - form{"name": null}
+  - utter_slots_values
 
 ## say goodbye
 * goodbye
@@ -177,4 +206,3 @@
 ## fallback story
 * out_of_scope
   - action_default_ask_rephrase
-
