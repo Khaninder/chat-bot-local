@@ -124,12 +124,19 @@
 - am I talking to a human?
 
 ## intent:share_problems
+- i had a bad day at work
+- i have problems at home
+- i got in trouble
+- i am okay overall, but somewhat worried
+- i'm worried about
+- a lot happened
+- i'm overwhelmed
 - [very mild]{"entity": "emotion_intensity", "value": "low"}
 - [pretty chill]{"entity": "emotion_intensity", "value": "low"} about
 - [not that important]{"entity": "emotion_intensity", "value": "low"}
 - [don't feel intense]{"entity": "emotion_intensity", "value": "low"}
 - [somewhat mild]{"entity": "emotion_intensity", "value": "low"} feeling
-- [moderate](emotion_intensity)
+- [moderate]{"entity": "emotion_intensity", "value": "moderate"}
 - i feel [intense]{"entity": "emotion_intensity", "value": "high"}
 - [very anxious]{"entity": "emotion_intensity", "value": "high"}
 - [extremely intense]{"entity": "emotion_intensity", "value": "high"}
@@ -147,8 +154,6 @@
 - [Hard to get through tasks]{"entity": "emotion_impact", "value": "high"} because of these emotions
 - [it’s all I can think about]{"entity": "emotion_impact", "value": "high"} lately
 - I just can't seem to keep my mind off of it and its almost [impossible to focus]{"entity": "emotion_impact", "value": "high"} on my tasks
-- i had a bad day at work
-- [very intense](emotion_intensity)
 
 ## intent:out_of_scope
 - that's not what I want to do
