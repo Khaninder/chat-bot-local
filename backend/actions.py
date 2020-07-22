@@ -243,6 +243,24 @@ class SeverityForm(FormAction):
             ]
         }
 
+    def validate_emotion_intensity(self, value: Text, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any]) -> Dict[Text, Any]:
+        if value.lower() in ["low", "moderate", "high"]:
+            return {"emotion_intensity": value}
+        else:
+            return {"emotion_intensity": None}
+
+    def validate_emotion_bother(self, value: Text, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any]) -> Dict[Text, Any]:
+        if value.lower() in ["a little", "moderately", "a lot"]:
+            return {"emotion_bother": value}
+        else:
+            return {"emotion_bother": None}
+
+    def validate_emotion_impact(self, value: Text, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any]) -> Dict[Text, Any]:
+        if value.lower() in ["low", "moderate", "high"]:
+            return {"emotion_impact": value}
+        else:
+            return {"emotion_impact": None}
+
     def submit(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
         if tracker.get_slot('emotion_intensity') == "low":
             emotion_intensity = 1

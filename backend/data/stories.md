@@ -1,8 +1,5 @@
 ## first time greet
 * greet
-  - utter_ask_name
-* introduction
-  - utter_nice_to_meet
   - utter_ask_how_doing
 > check_asked_mood
 
@@ -172,7 +169,7 @@
   - utter_ask_why_bad
 > check_venting_group
 
-## venting group
+<!-- ## venting group
 > check_venting_group
 * share_problems
   - severity_form
@@ -189,7 +186,22 @@
   - severity_form
   - form{"name": "severity_form"}
   - form{"name": null}
-  - utter_slots_values
+  - utter_slots_values -->
+
+## venting group
+> check_venting_group
+* share_problems{"sentiment" : "low"}
+  - utter_low_severity
+
+## venting group
+> check_venting_group
+* share_problems{"sentiment" : "moderate"}
+  - utter_moderate_severity
+
+## venting group
+> check_venting_group
+* share_problems{"sentiment" : "high"}
+  - utter_high_severity
 
 ## say goodbye
 * goodbye

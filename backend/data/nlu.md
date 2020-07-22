@@ -136,13 +136,21 @@
 - [not that important]{"entity": "emotion_intensity", "value": "low"}
 - [don't feel intense]{"entity": "emotion_intensity", "value": "low"}
 - [somewhat mild]{"entity": "emotion_intensity", "value": "low"} feeling
-- [moderate]{"entity": "emotion_intensity", "value": "moderate"}
-- i feel [intense]{"entity": "emotion_intensity", "value": "high"}
-- [very anxious]{"entity": "emotion_intensity", "value": "high"}
+- [a bit nervous]{"entity": "emotion_intensity", "value": "moderate"}
+- [a little worried]{"entity": "emotion_intensity", "value": "moderate"} about
+- [somewhat irritable]{"entity": "emotion_intensity", "value": "moderate"}
+- i feel [very intense]{"entity": "emotion_intensity", "value": "high"}
+- i am [very anxious]{"entity": "emotion_intensity", "value": "high"}
+- i'm [so ashamed]{"entity": "emotion_intensity", "value": "high"}
+- it's been [very tough]{"entity": "emotion_intensity", "value": "high"}
 - [extremely intense]{"entity": "emotion_intensity", "value": "high"}
+- [was fired]{"entity": "emotion_intensity", "value": "high"}
+- [extremely discouraged]{"entity": "emotion_intensity", "value": "high"}
 - [very angry]{"entity": "emotion_intensity", "value": "high"} about
 - [not bothersome]{"entity": "emotion_bother", "value": "a little"} at all
 - [only a little bothersome]{"entity": "emotion_bother", "value": "a little"}
+- [somewhat worried]{"entity": "emotion_bother", "value": "moderately"}
+- [a little bothered]{"entity": "emotion_bother", "value": "moderately"}
 - [moderately bothersome or distressing]{"entity": "emotion_bother", "value": "moderately"}
 - [very distressing]{"entity": "emotion_bother", "value": "a lot"}
 - [extremely distressing]{"entity": "emotion_bother", "value": "a lot"}
@@ -151,7 +159,7 @@
 - [I've occasionally noticed some minimal effects on my concentration]{"entity": "emotion_impact", "value": "low"}
 - [I sometimes find these emotions quite distracting]{"entity": "emotion_impact", "value": "moderate"}
 - [quite often, I have difficulty concentrating]{"entity": "emotion_impact", "value": "high"}
-- [Hard to get through tasks]{"entity": "emotion_impact", "value": "high"} because of these emotions
+- [hard to get through tasks]{"entity": "emotion_impact", "value": "high"} because of these emotions
 - [it’s all I can think about]{"entity": "emotion_impact", "value": "high"} lately
 - I just can't seem to keep my mind off of it and its almost [impossible to focus]{"entity": "emotion_impact", "value": "high"} on my tasks
 
