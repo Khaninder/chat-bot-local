@@ -5,6 +5,9 @@
 - good morning
 - good evening
 - hey there
+- hi bot
+- good afternoon
+- salute
 
 ## intent:introduction
 - my name is [Alex](name)
@@ -17,7 +20,7 @@
 - I'm [Jackie](name)
 - I'm [Martin](name)
 - my names [Jeff](name)
-- Darya
+- i prefer to be called [Ron](name)
 
 ## intent:goodbye
 - bye
@@ -131,37 +134,37 @@
 - i'm worried about
 - a lot happened
 - i'm overwhelmed
-- [very mild]{"entity": "emotion_intensity", "value": "low"}
-- [pretty chill]{"entity": "emotion_intensity", "value": "low"} about
-- [not that important]{"entity": "emotion_intensity", "value": "low"}
-- [don't feel intense]{"entity": "emotion_intensity", "value": "low"}
-- [somewhat mild]{"entity": "emotion_intensity", "value": "low"} feeling
-- [a bit nervous]{"entity": "emotion_intensity", "value": "moderate"}
-- [a little worried]{"entity": "emotion_intensity", "value": "moderate"} about
-- [somewhat irritable]{"entity": "emotion_intensity", "value": "moderate"}
-- i feel [very intense]{"entity": "emotion_intensity", "value": "high"}
-- i am [very anxious]{"entity": "emotion_intensity", "value": "high"}
-- i'm [so ashamed]{"entity": "emotion_intensity", "value": "high"}
-- it's been [very tough]{"entity": "emotion_intensity", "value": "high"}
-- [extremely intense]{"entity": "emotion_intensity", "value": "high"}
-- [was fired]{"entity": "emotion_intensity", "value": "high"}
-- [extremely discouraged]{"entity": "emotion_intensity", "value": "high"}
-- [very angry]{"entity": "emotion_intensity", "value": "high"} about
-- [not bothersome]{"entity": "emotion_bother", "value": "a little"} at all
-- [only a little bothersome]{"entity": "emotion_bother", "value": "a little"}
-- [somewhat worried]{"entity": "emotion_bother", "value": "moderately"}
-- [a little bothered]{"entity": "emotion_bother", "value": "moderately"}
-- [moderately bothersome or distressing]{"entity": "emotion_bother", "value": "moderately"}
-- [very distressing]{"entity": "emotion_bother", "value": "a lot"}
-- [extremely distressing]{"entity": "emotion_bother", "value": "a lot"}
-- I can still concentrate [just fine]{"entity": "emotion_impact", "value": "low"}
-- I've found it [very easy to push]{"entity": "emotion_impact", "value": "low"} this from my mind when needed
-- [I've occasionally noticed some minimal effects on my concentration]{"entity": "emotion_impact", "value": "low"}
-- [I sometimes find these emotions quite distracting]{"entity": "emotion_impact", "value": "moderate"}
-- [quite often, I have difficulty concentrating]{"entity": "emotion_impact", "value": "high"}
-- [hard to get through tasks]{"entity": "emotion_impact", "value": "high"} because of these emotions
-- [it’s all I can think about]{"entity": "emotion_impact", "value": "high"} lately
-- I just can't seem to keep my mind off of it and its almost [impossible to focus]{"entity": "emotion_impact", "value": "high"} on my tasks
+- very mild
+- pretty chill about
+- not that important
+- don't feel intense
+- somewhat mild feeling
+- a bit nervous
+- a little worried about
+- somewhat irritable
+- i feel very intense
+- i am very anxious
+- i'm so ashamed
+- it's been very tough
+- extremely intense
+- was fired
+- extremely discouraged
+- very angry about
+- not bothersome at all
+- only a little bothersome
+- somewhat worried
+- a little bothered
+- moderately bothersome or distressing
+- very distressing
+- extremely distressing
+- I can still concentrate just fine
+- I've found it very easy to push this from my mind when needed
+- I've occasionally noticed some minimal effects on my concentration
+- I sometimes find these emotions quite distracting
+- quite often, I have difficulty concentrating
+- hard to get through tasks because of these emotions
+- it’s all I can think about lately
+- I just can't seem to keep my mind off of it and its almost impossible to focus on my tasks
 
 ## intent:out_of_scope
 - that's not what I want to do
@@ -183,37 +186,3 @@
 - I changed my mind
 - stupid bot
 - I don't want to talk to you
-
-## synonym:a little
-- not bothersome
-- only a little bothersome
-
-## synonym:a lot
-- very distressing
-- extremely distressing
-
-## synonym:high
-- intense
-- very anxious
-- extremely intense
-- very angry
-- quite often, I have difficulty concentrating
-- Hard to get through tasks
-- it’s all I can think about
-- impossible to focus
-
-## synonym:low
-- very mild
-- pretty chill
-- not that important
-- don't feel intense
-- somewhat mild
-- just fine
-- very easy to push
-- I've occasionally noticed some minimal effects on my concentration
-
-## synonym:moderate
-- I sometimes find these emotions quite distracting
-
-## synonym:moderately
-- moderately bothersome or distressing

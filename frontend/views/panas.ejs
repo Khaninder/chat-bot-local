@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/panas.css" />
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700|Barlow+Condensed:400,600" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container">
+        <div id="info">
+            <button id="taskInfo" type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#bgStorySetupModal">Task Information</button>
+        </div>
+        <p>Hello
+            <%= user %>! This scale consists of a number of words that describe different feelings and emotions. Read each item and then mark the appropriate answer in the space next to that word. <mark>Indicate the extent you have felt this way over the past day</mark>.</p>
+        <table id="panas_table">
+            <thead>
+                <th class="main"></th>
+                <th>Very slightly or not at all</th>
+                <th>A little</th>
+                <th>Mode&shy;rately</th>
+                <th>Quite a bit</th>
+                <th>Extre&shy;mely</th>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="Interested main">Interested</td>
+                    <td class="Interested">
+                        <label class="radio-inline"><input type="radio" name="Interested" value="1"></label>
+                    </td>
+                    <td class="Interested">
+                        <label class="radio-inline"><input type="radio" name="Interested" value="2"></label>
+                    </td>
+                    <td class="Interested">
+                        <label class="radio-inline"><input type="radio" name="Interested" value="3"></label>
+                    </td>
+                    <td class="Interested">
+                        <label class="radio-inline"><input type="radio" name="Interested" value="4"></label>
+                    </td>
+                    <td class="Interested">
+                        <label class="radio-inline"><input type="radio" name="Interested" value="5"></label>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="Distressed main">Distressed</td>
+                    <td class="Distressed">
+                        <label class="radio-inline"><input type="radio" name="Distressed" value="1"></label>
+                    </td>
+                    <td class="Distressed">
+                        <label class="radio-inline"><input type="radio" name="Distressed" value="2"></label>
+                    </td>
+                    <td class="Distressed">
+                        <label class="radio-inline"><input type="radio" name="Distressed" value="3"></label>
+                    </td>
+                    <td class="Distressed">
+                        <label class="radio-inline"><input type="radio" name="Distressed" value="4"></label>
+                    </td>
+                    <td class="Distressed">
+                        <label class="radio-inline"><input type="radio" name="Distressed" value="5"></label>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="Excited main">Excited</td>
+                    <td class="Excited">
+                        <label class="radio-inline"><input type="radio" name="Excited" value="1"></label>
+                    </td>
+                    <td class="Excited">
+                        <label class="radio-inline"><input type="radio" name="Excited" value="2"></label>
+                    </td>
+                    <td class="Excited">
+                        <label class="radio-inline"><input type="radio" name="Excited" value="3"></label>
+                    </td>
+                    <td class="Excited">
+                        <label class="radio-inline"><input type="radio" name="Excited" value="4"></label>
+                    </td>
+                    <td class="Excited">
+                        <label class="radio-inline"><input type="radio" name="Excited" value="5"></label>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="Upset main">Upset</td>
+                    <td class="Upset">
+                        <label class="radio-inline"><input type="radio" name="Upset" value="1"></label>
+                    </td>
+                    <td class="Upset">
+                        <label class="radio-inline"><input type="radio" name="Upset" value="2"></label>
+                    </td>
+                    <td class="Upset">
+                        <label class="radio-inline"><input type="radio" name="Upset" value="3"></label>
+                    </td>
+                    <td class="Upset">
+                        <label class="radio-inline"><input type="radio" name="Upset" value="4"></label>
+                    </td>
+                    <td class="Upset">
+                        <label class="radio-inline"><input type="radio" name="Upset" value="5"></label>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="Strong main">Strong</td>
+                    <td class="Strong">
+                        <label class="radio-inline"><input type="radio" name="Strong" value="1"></label>
+                    </td>
+                    <td class="Strong">
+                        <label class="radio-inline"><input type="radio" name="Strong" value="2"></label>
+                    </td>
+                    <td class="Strong">
+                        <label class="radio-inline"><input type="radio" name="Strong" value="3"></label>
+                    </td>
+                    <td class="Strong">
+                        <label class="radio-inline"><input type="radio" name="Strong" value="4"></label>
+                    </td>
+                    <td class="Strong">
+                        <label class="radio-inline"><input type="radio" name="Strong" value="5"></label>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="Guilty main">Guilty</td>
+                    <td class="Guilty">
+                        <label class="radio-inline"><input type="radio" name="Guilty" value="1"></label>
+                    </td>
+                    <td class="Guilty">
+                        <label class="radio-inline"><input type="radio" name="Guilty" value="2"></label>
+                    </td>
+                    <td class="Guilty">
+                        <label class="radio-inline"><input type="radio" name="Guilty" value="3"></label>
+                    </td>
+                    <td class="Guilty">
+                        <label class="radio-inline"><input type="radio" name="Guilty" value="4"></label>
+                    </td>
+                    <td class="Guilty">
+                        <label class="radio-inline"><input type="radio" name="Guilty" value="5"></label>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="Scared main">Scared</td>
+                    <td class="Scared">
+                        <label class="radio-inline"><input type="radio" name="Scared" value="1"></label>
+                    </td>
+                    <td class="Scared">
+                        <label class="radio-inline"><input type="radio" name="Scared" value="2"></label>
+                    </td>
+                    <td class="Scared">
+                        <label class="radio-inline"><input type="radio" name="Scared" value="3"></label>
+                    </td>
+                    <td class="Scared">
+                        <label class="radio-inline"><input type="radio" name="Scared" value="4"></label>
+                    </td>
+                    <td class="Scared">
+                        <label class="radio-inline"><input type="radio" name="Scared" value="5"></label>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="Hostile main">Hostile</td>
+                    <td class="Hostile">
+                        <label class="radio-inline"><input type="radio" name="Hostile" value="1"></label>
+                    </td>
+                    <td class="Hostile">
+                        <label class="radio-inline"><input type="radio" name="Hostile" value="2"></label>
+                    </td>
+                    <td class="Hostile">
+                        <label class="radio-inline"><input type="radio" name="Hostile" value="3"></label>
+                    </td>
+                    <td class="Hostile">
+                        <label class="radio-inline"><input type="radio" name="Hostile" value="4"></label>
+                    </td>
+                    <td class="Hostile">
+                        <label class="radio-inline"><input type="radio" name="Hostile" value="5"></label>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="Enthusiastic main">Enthusiastic</td>
+                    <td class="Enthusiastic">
+                        <label class="radio-inline"><input type="radio" name="Enthusiastic" value="1"></label>
+                    </td>
+                    <td class="Enthusiastic">
+                        <label class="radio-inline"><input type="radio" name="Enthusiastic" value="2"></label>
+                    </td>
+                    <td class="Enthusiastic">
+                        <label class="radio-inline"><input type="radio" name="Enthusiastic" value="3"></label>
+                    </td>
+                    <td class="Enthusiastic">
+                        <label class="radio-inline"><input type="radio" name="Enthusiastic" value="4"></label>
+                    </td>
+                    <td class="Enthusiastic">
+                        <label class="radio-inline"><input type="radio" name="Enthusiastic" value="5"></label>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="Proud main">Proud</td>
+                    <td class="Proud">
+                        <label class="radio-inline"><input type="radio" name="Proud" value="1"></label>
+                    </td>
+                    <td class="Proud">
+                        <label class="radio-inline"><input type="radio" name="Proud" value="2"></label>
+                    </td>
+                    <td class="Proud">
+                        <label class="radio-inline"><input type="radio" name="Proud" value="3"></label>
+                    </td>
+                    <td class="Proud">
+                        <label class="radio-inline"><input type="radio" name="Proud" value="4"></label>
+                    </td>
+                    <td class="Proud">
+                        <label class="radio-inline"><input type="radio" name="Proud" value="5"></label>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="Irritable main">Irritable</td>
+                    <td class="Irritable">
+                        <label class="radio-inline"><input type="radio" name="Irritable" value="1"></label>
+                    </td>
+                    <td class="Irritable">
+                        <label class="radio-inline"><input type="radio" name="Irritable" value="2"></label>
+                    </td>
+                    <td class="Irritable">
+                        <label class="radio-inline"><input type="radio" name="Irritable" value="3"></label>
+                    </td>
+                    <td class="Irritable">
+                        <label class="radio-inline"><input type="radio" name="Irritable" value="4"></label>
+                    </td>
+                    <td class="Irritable">
+                        <label class="radio-inline"><input type="radio" name="Irritable" value="5"></label>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="Alert main">Alert</td>
+                    <td class="Alert">
+                        <label class="radio-inline"><input type="radio" name="Alert" value="1"></label>
+                    </td>
+                    <td class="Alert">
+                        <label class="radio-inline"><input type="radio" name="Alert" value="2"></label>
+                    </td>
+                    <td class="Alert">
+                        <label class="radio-inline"><input type="radio" name="Alert" value="3"></label>
+                    </td>
+                    <td class="Alert">
+                        <label class="radio-inline"><input type="radio" name="Alert" value="4"></label>
+                    </td>
+                    <td class="Alert">
+                        <label class="radio-inline"><input type="radio" name="Alert" value="5"></label>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="Ashamed main">Ashamed</td>
+                    <td class="Ashamed">
+                        <label class="radio-inline"><input type="radio" name="Ashamed" value="1"></label>
+                    </td>
+                    <td class="Ashamed">
+                        <label class="radio-inline"><input type="radio" name="Ashamed" value="2"></label>
+                    </td>
+                    <td class="Ashamed">
+                        <label class="radio-inline"><input type="radio" name="Ashamed" value="3"></label>
+                    </td>
+                    <td class="Ashamed">
+                        <label class="radio-inline"><input type="radio" name="Ashamed" value="4"></label>
+                    </td>
+                    <td class="Ashamed">
+                        <label class="radio-inline"><input type="radio" name="Ashamed" value="5"></label>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="Inspired main">Inspired</td>
+                    <td class="Inspired">
+                        <label class="radio-inline"><input type="radio" name="Inspired" value="1"></label>
+                    </td>
+                    <td class="Inspired">
+                        <label class="radio-inline"><input type="radio" name="Inspired" value="2"></label>
+                    </td>
+                    <td class="Inspired">
+                        <label class="radio-inline"><input type="radio" name="Inspired" value="3"></label>
+                    </td>
+                    <td class="Inspired">
+                        <label class="radio-inline"><input type="radio" name="Inspired" value="4"></label>
+                    </td>
+                    <td class="Inspired">
+                        <label class="radio-inline"><input type="radio" name="Inspired" value="5"></label>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="Nervous main">Nervous</td>
+                    <td class="Nervous">
+                        <label class="radio-inline"><input type="radio" name="Nervous" value="1"></label>
+                    </td>
+                    <td class="Nervous">
+                        <label class="radio-inline"><input type="radio" name="Nervous" value="2"></label>
+                    </td>
+                    <td class="Nervous">
+                        <label class="radio-inline"><input type="radio" name="Nervous" value="3"></label>
+                    </td>
+                    <td class="Nervous">
+                        <label class="radio-inline"><input type="radio" name="Nervous" value="4"></label>
+                    </td>
+                    <td class="Nervous">
+                        <label class="radio-inline"><input type="radio" name="Nervous" value="5"></label>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="Determined main">Determined</td>
+                    <td class="Determined">
+                        <label class="radio-inline"><input type="radio" name="Determined" value="1"></label>
+                    </td>
+                    <td class="Determined">
+                        <label class="radio-inline"><input type="radio" name="Determined" value="2"></label>
+                    </td>
+                    <td class="Determined">
+                        <label class="radio-inline"><input type="radio" name="Determined" value="3"></label>
+                    </td>
+                    <td class="Determined">
+                        <label class="radio-inline"><input type="radio" name="Determined" value="4"></label>
+                    </td>
+                    <td class="Determined">
+                        <label class="radio-inline"><input type="radio" name="Determined" value="5"></label>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="Attentive main">Attentive</td>
+                    <td class="Attentive">
+                        <label class="radio-inline"><input type="radio" name="Attentive" value="1"></label>
+                    </td>
+                    <td class="Attentive">
+                        <label class="radio-inline"><input type="radio" name="Attentive" value="2"></label>
+                    </td>
+                    <td class="Attentive">
+                        <label class="radio-inline"><input type="radio" name="Attentive" value="3"></label>
+                    </td>
+                    <td class="Attentive">
+                        <label class="radio-inline"><input type="radio" name="Attentive" value="4"></label>
+                    </td>
+                    <td class="Attentive">
+                        <label class="radio-inline"><input type="radio" name="Attentive" value="5"></label>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="Jittery main">Jittery</td>
+                    <td class="Jittery">
+                        <label class="radio-inline"><input type="radio" name="Jittery" value="1"></label>
+                    </td>
+                    <td class="Jittery">
+                        <label class="radio-inline"><input type="radio" name="Jittery" value="2"></label>
+                    </td>
+                    <td class="Jittery">
+                        <label class="radio-inline"><input type="radio" name="Jittery" value="3"></label>
+                    </td>
+                    <td class="Jittery">
+                        <label class="radio-inline"><input type="radio" name="Jittery" value="4"></label>
+                    </td>
+                    <td class="Jittery">
+                        <label class="radio-inline"><input type="radio" name="Jittery" value="5"></label>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="Active main">Active</td>
+                    <td class="Active">
+                        <label class="radio-inline"><input type="radio" name="Active" value="1"></label>
+                    </td>
+                    <td class="Active">
+                        <label class="radio-inline"><input type="radio" name="Active" value="2"></label>
+                    </td>
+                    <td class="Active">
+                        <label class="radio-inline"><input type="radio" name="Active" value="3"></label>
+                    </td>
+                    <td class="Active">
+                        <label class="radio-inline"><input type="radio" name="Active" value="4"></label>
+                    </td>
+                    <td class="Active">
+                        <label class="radio-inline"><input type="radio" name="Active" value="5"></label>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="Afraid main">Afraid</td>
+                    <td class="Afraid">
+                        <label class="radio-inline"><input type="radio" name="Afraid" value="1"></label>
+                    </td>
+                    <td class="Afraid">
+                        <label class="radio-inline"><input type="radio" name="Afraid" value="2"></label>
+                    </td>
+                    <td class="Afraid">
+                        <label class="radio-inline"><input type="radio" name="Afraid" value="3"></label>
+                    </td>
+                    <td class="Afraid">
+                        <label class="radio-inline"><input type="radio" name="Afraid" value="4"></label>
+                    </td>
+                    <td class="Afraid">
+                        <label class="radio-inline"><input type="radio" name="Afraid" value="5"></label>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+
+        <div id="panasError" class="alert alert-danger alert-dismissible fade show" role="alert">
+            Please complete the highlighted fields.
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+        </div>
+        <div id="panasNexButton">
+            <button type="button" id="panas_result" class="btn btn-primary">Next</button>
+        </div>
+
+    </div>
+    <div class="modal fade" id="bgStorySetupModal" role="dialog">
+        <div class="modal-dialog modal-lg">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header" style="display:block !important">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Overall Task Description</h4>
+                </div>
+                <div class="modal-body">
+
+                    <p>
+                        <u>Background Story:</u> Teams are often a preferred choice to complete complex projects. The success of such teams depends on the right combination of factors such as team member personalities, roles, location where the teams
+                        meet, and how long they work among other things. Therefore, it is critical for project managers and hiring managers to consider these issues while hiring. However, since there is a lot of complex information that needs to be processed,
+                        it is difficult for one person to consider all issues and make the right choice on their own. To resolve this challenge, organizations are utilizing artificial intelligence (AI) chat bots to provide them with relevant information
+                        and helping them process this information in order to make effective decisions.
+                        <br /> In this scenario, you will work with one such AI chat bots, which will help you determine the composition of a project team. In this task, a chat bot will provide you with relevant information needed to make a decision regarding
+                        the team composition. Using AI, the chat bot will adapt to your needs and respond to requests you make for more information. With the assistance of the AI chat bot, your task is to decide each candidate’s role in the project and
+                        how many hours they will need to work on the project every week.
+                        <br />
+
+
+                    </p>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">Ok</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+    <script src="/panas.js"></script>
+</body>
+
+</html>

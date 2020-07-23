@@ -14,13 +14,14 @@ intents:
 - skip_to_activity
 - tell_more
 - share_problems
-- out_of_scope:
-    triggers: action_default_ask_rephrase
+- out_of_scope
+
 entities:
 - name
 - emotion_intensity
 - emotion_bother
 - emotion_impact
+- sentiment
 slots:
   emotion_bother:
     type: unfeaturized
@@ -96,17 +97,50 @@ responses:
   - text: Are you sure? Sometimes it can feel good to get it off your chest. However,
       if you don't feel comfortable talking about it right now, I can just share some
       ideas to help you feel better.
-  utter_venting_group:
+  utter_tell_me_sad:
   - text: I'm glad to hear that you feel comfortable telling me about it. You can
-      go ahead and tell me about what's been going on. You can tell me more about
-      the way you're feeling and why.
+      go ahead and tell me about what's been going on, the way you're feeling and why.
+  utter_tell_me_happy:
+  - text: Great! You can go ahead and tell me about what's been going on, the way you're feeling and why.
   utter_ask_emotion_intensity:
-  - text: How intense have these emotions been for you?
+  - text: "How intense have these emotions been for you?"
+    buttons:
+    - title: "Very mild"
+      payload: '/share_problems{"emotion_intensity": 1}'
+    - title: "Somewhat mild"
+      payload: '/share_problems{"emotion_intensity": 2}'
+    - title: "Moderate"
+      payload: '/share_problems{"emotion_intensity": 3}'
+    - title: "Intense"
+      payload: '/share_problems{"emotion_intensity": 4}'
+    - title: "Extremely intense"
+      payload: '/share_problems{"emotion_intensity": 5}'
   utter_ask_emotion_bother:
-  - text: How much have these emotions bothered you?
+  - text: "How much have these emotions bothered you?"
+    buttons:
+    - title: "Not bothersome at all"
+      payload: '/share_problems{"emotion_bother": 1}'
+    - title: "Only a little bothersome"
+      payload: '/share_problems{"emotion_bother": 2}'
+    - title: "Moderately bothersome or distressing"
+      payload: '/share_problems{"emotion_bother": 3}'
+    - title: "Very distressing"
+      payload: '/share_problems{"emotion_bother": 4}'
+    - title: "Extremely distressing"
+      payload: '/share_problems{"emotion_bother": 5}'
   utter_ask_emotion_impact:
-  - text: How much have these feelings impacted your concentration or ability to focus
-      your attention on tasks?
+  - text: "How much have these feelings impacted your concentration or ability to focus your attention on tasks?"
+    buttons:
+    - title: "I can still concentrate just fine. I've found it very easy to push this from my mind when needed"
+      payload: '/share_problems{"emotion_impact": 1}'
+    - title: "I've occasionally noticed some minimal effects on my concentration"
+      payload: '/share_problems{"emotion_impact": 2}'
+    - title: "I sometimes find these emotions quite distracting"
+      payload: '/share_problems{"emotion_impact": 3}'
+    - title: "Quite often, I have difficulty concentrating and getting through tasks because of these emotions"
+      payload: '/share_problems{"emotion_impact": 4}'
+    - title: "It’s all I can think about lately. I just can't seem to keep my mind off of it and its almost impossible to focus on my tasks"
+      payload: '/share_problems{"emotion_impact": 5}'
   utter_thanks_for_answering:
   - text: Thanks for answering those questions for me, {name}.
   utter_slots_values:
@@ -116,6 +150,8 @@ responses:
   utter_skip_to_activity:
   - text: Okay. I'd like to show you a simple technique that can help you manage your
       negative emotions.
+  utter_skip_to_activity_fb:
+  - text: It looks like I am not able to fully understand what you are trying to tell me. That's okay, let's just skip to the activity.
   utter_after_severity_score:
   - text: Is there anything else? Anything you'd like to add?
   utter_low_severity:
@@ -139,29 +175,9 @@ responses:
 actions:
 - action_get_panas_score
 - action_default_ask_affirmation
-- action_default_fallback
-- action_default_ask_rephrase
-- utter_greet
-- utter_ask_name
-- utter_greet_name
-- utter_nice_to_meet
-- utter_ask_how_doing
-- utter_negative_panas
-- utter_ask_why_bad
-- utter_happy_offer_chat
-- utter_denied_chat
-- utter_goodbye
-- utter_denied_why_bad
-- utter_venting_group
-- utter_ask_emotion_intensity
-- utter_ask_emotion_bother
-- utter_ask_emotion_impact
-- utter_thanks_for_answering
-- utter_slots_values
-- utter_skip_to_activity
-- utter_after_severity_score
-- utter_iamabot
-- utter_respond_insult
-- utter_ask_rephrase
+# - action_default_fallback
+# - action_default_ask_rephrase
+# - action_severity_score
+- action_skip_to_activity
 forms:
-- severity_form
+- severity_form_with_buttons

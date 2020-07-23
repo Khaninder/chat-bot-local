@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/jquery.bootstrapvalidator/0.5.3/css/bootstrapValidator.min.css" />
+    <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery.bootstrapvalidator/0.5.3/js/bootstrapValidator.min.js"></script>
+    <link rel="stylesheet" href="/login.css" />
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700|Barlow+Condensed:400,600" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Login</title>
+</head>
+
+<body>
+    <div class="error-container">
+        <ul>
+            <% if (typeof errors != 'undefined') { %>
+                <% errors.forEach(error => { %>
+                    <li class="alert alert-danger alert-dismissible fade show" role="alert">
+                        <%= error.message %>
+                    </li>
+                    <% }) %>
+                        <% } %>
+        </ul>
+
+        <ul>
+            <% if(messages.success_msg) { %>
+                <li class="alert alert-danger alert-dismissible fade show" role="alert">
+                    <%= messages.success_msg %>
+                </li>
+                <% } %>
+        </ul>
+
+        <ul>
+            <% if (messages.error) { %>
+                <li class="alert alert-danger alert-dismissible fade show" role="alert">
+                    <%= messages.error %>
+                </li>
+                <% } %>
+        </ul>
+    </div>
+    <div class="small-container">
+        <h1>Login</h1>
+
+        <form action="/users/login" method="POST">
+            <div class="form-group">
+                <span>U-</span>
+                <input class="form-field" type="text" name="uid" id="uid" placeholder="Your U-number" required>
+            </div>
+            <div>
+                <input class="btn btn-primary" type="submit" value="Login" />
+            </div>
+            <div id="register"><a href="/users/register">New participant? Register</a></div>
+
+        </form>
+    </div>
+</body>
+
+</html>

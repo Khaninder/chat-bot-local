@@ -6,24 +6,28 @@ $(document).ready(function() {
 
     localStorage.clear();
     $('input[type=radio][name=optradio]').change(function() {
+        if (this.value == 'no') {
+            alert("Thank you for your visit");
+            window.location.replace(window.location.origin);
+        }
         if (this.value == 'yes') {
-            $("#participantFirstName").removeAttr('disabled');
-            $("#participantLastName").removeAttr('disabled');
-            $("#participantUid").removeAttr('disabled');
+            $("#firstname").removeAttr('disabled');
+            $("#lastname").removeAttr('disabled');
+            $("#uid").removeAttr('disabled');
         } else if (this.value == 'no') {
             $("#firstNameError").hide()
             $("#lastNameError").hide()
             $("#uidError").hide()
             $("#uidValidError").hide()
-            $("#participantFirstName").attr('disabled', 'disabled');
-            $("#participantLastName").attr('disabled', 'disabled');
-            $("#participantUid").attr('disabled', 'disabled');
+            $("#firstname").attr('disabled', 'disabled');
+            $("#lastname").attr('disabled', 'disabled');
+            $("#uid").attr('disabled', 'disabled');
         }
     });
 
 
-    $("#participantFirstName").keyup(function(e) {
-        if ($('#participantFirstName').val().trim().length > 0) {
+    $("#firstname").keyup(function(e) {
+        if ($('#firstname').val().trim().length > 0) {
             $("#firstNameError").hide()
         } else {
             $("#firstNameError").show()
@@ -31,8 +35,8 @@ $(document).ready(function() {
 
     });
 
-    $("#participantLastName").keyup(function(e) {
-        if ($('#participantLastName').val().trim().length > 0) {
+    $("#lastname").keyup(function(e) {
+        if ($('#lastname').val().trim().length > 0) {
             $("#lastNameError").hide()
         } else {
             $("#lastNameError").show()
@@ -40,8 +44,8 @@ $(document).ready(function() {
 
     });
 
-    $("#participantUid").keyup(function(e) {
-        var uid = $('#participantUid').val().trim()
+    $("#uid").keyup(function(e) {
+        var uid = $('#uid').val().trim()
         if (uid.length > 0) {
             $("#uidError").hide()
             for (var i = 0; i < uid.length; i++) {
@@ -62,9 +66,9 @@ $(document).ready(function() {
 
     $('#consentNext').click(function(e) {
 
-        var firstName = $('#participantFirstName').val().trim();
-        var lastName = $('#participantLastName').val().trim();
-        var uid = $('#participantUid').val().trim();
+        var firstName = $('#firstname').val().trim();
+        var lastName = $('#lastname').val().trim();
+        var uid = $('#uid').val().trim();
         var isUidValid = true
         var isAllValid = false
         var option = $("input[type=radio][name=optradio]:checked").val()
@@ -117,9 +121,6 @@ $(document).ready(function() {
                 }
 
             }
-        } else {
-            alert("Thank you for your visit");
-            location.reload(true);
         }
 
         if (isAllValid) {
@@ -131,17 +132,6 @@ $(document).ready(function() {
                     url: '/panas',
                     data: { firstName: cap(firstName), lastName: cap(lastName), uid: uid },
                     dataType: 'json',
-                });
-                $.ajax({
-                    url: '/panas',
-                    type: 'GET',
-                    success: function(response) {
-                        localStorage.setItem("isValid", 'True')
-                        window.location.replace(window.location.href + 'panas')
-                    },
-                    error: function(response) {
-
-                    }
                 });
             } else {
                 alert("Thank you")

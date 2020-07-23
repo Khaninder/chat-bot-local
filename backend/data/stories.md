@@ -10,7 +10,7 @@
   - slot{"panas_score" : "1"}
   - utter_happy_offer_chat
 * affirm
-  - utter_venting_group
+  - utter_tell_me_happy
 > check_venting_group
 
 ## good mood positive panas affirmed chat
@@ -40,7 +40,7 @@
 * deny
   - utter_happy_offer_chat
 * affirm
-  - utter_venting_group
+  - utter_tell_me_happy
 > check_venting_group
 
 ## good mood negative panas not bad anymore affirmed chat
@@ -74,7 +74,7 @@
 * affirm
   - utter_ask_why_bad
 * affirm
-  - utter_venting_group
+  - utter_tell_me_sad
 > check_venting_group
 
 ## good mood negative panas still bad affirmed
@@ -87,7 +87,7 @@
   - utter_ask_why_bad
 > check_venting_group
 
-## good mood negative panas still bad denied skip to activity
+## good mood negative panas still bad denied skip to the activity
 > check_asked_mood
 * mood_great
   - action_get_panas_score
@@ -112,7 +112,7 @@
 * deny
   - utter_denied_why_bad
 * tell_more
-  - utter_venting_group
+  - utter_tell_me_sad
 > check_venting_group
 
 ## good mood negative panas still bad denied tell more
@@ -144,7 +144,7 @@
 * deny
   - utter_denied_why_bad
 * tell_more
-  - utter_venting_group
+  - utter_tell_me_sad
 > check_venting_group
 
 ## bad mood denied tell more
@@ -160,7 +160,7 @@
 * mood_unhappy
   - utter_ask_why_bad
 * affirm
-  - utter_venting_group
+  - utter_tell_me_sad
 > check_venting_group
 
 ## bad mood affirmed
@@ -169,26 +169,14 @@
   - utter_ask_why_bad
 > check_venting_group
 
+## venting group
+> check_venting_group
+* share_problems
+  - severity_form_with_buttons
+  - form{"name": "severity_form_with_buttons"}
+  - form{"name": null}
+
 <!-- ## venting group
-> check_venting_group
-* share_problems
-  - severity_form
-  - form{"name": "severity_form"}
-  - form{"name": null}
-  - utter_slots_values
-
-## venting group
-> check_venting_group
-* share_problems
-  - severity_form
-  - form{"name": "severity_form"}
-* out_of_scope
-  - severity_form
-  - form{"name": "severity_form"}
-  - form{"name": null}
-  - utter_slots_values -->
-
-## venting group
 > check_venting_group
 * share_problems{"sentiment" : "low"}
   - utter_low_severity
@@ -201,7 +189,7 @@
 ## venting group
 > check_venting_group
 * share_problems{"sentiment" : "high"}
-  - utter_high_severity
+  - utter_high_severity -->
 
 ## say goodbye
 * goodbye
@@ -215,6 +203,7 @@
 * insult
   - utter_respond_insult
 
-## fallback story
+<!-- ## fallback story
 * out_of_scope
-  - action_default_ask_rephrase
+  - action_default_ask_rephrase -->
+

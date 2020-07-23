@@ -18,26 +18,11 @@ function scrollToBottomOfResults() {
 //============== Send a reminder when the user doesn't respond ================
 function sendReminder() {
     timeout = setTimeout(function() {
-
-        $.ajax({
-            type: "GET",
-            dataType: "json",
-            contentType: "application/json",
-            url: "http://localhost:5005/conversations/user/tracker",
-            async: false,
-            success: function(data) {
-                //events = data.events;
-                var name = data.slots.name;
-                if (name == "" || name == null || name == "null" || name == "Null") {
-                    timeoutMsg = "Are you there?";
-                } else {
-                    timeoutMsg = "Are you still there, " + name + "?";
-                }
-            },
-            error: function() {
-                timeoutMsg = "Are you there?";
-            }
-        });
+        if (name == "" || name == null || name == "null" || name == "Null") {
+            timeoutMsg = "Are you there?";
+        } else {
+            timeoutMsg = "Are you still there, " + name + "?";
+        }
         var botMsg = document.getElementsByClassName("botMsg");
         var lastBotMsg = botMsg[botMsg.length - 1].innerHTML;
         if (lastBotMsg != timeoutMsg) {
@@ -45,7 +30,7 @@ function sendReminder() {
             $(BotResponse).appendTo(".chats").hide().fadeIn(1000);
             scrollToBottomOfResults();
         }
-    }, 120000)
+    }, 300000)
 }
 
 // ========================== greet user proactively ========================
@@ -123,9 +108,13 @@ function restartConversation() {
 function botFirst() {
     setTimeout(function() {
         hideBotTyping();
-        //var firstMsg = "Hello, Bot here!";
-        var arr = ["Hello, Bot here!", "Hey, I'm Bot!", "Hi there! I'm Bot.", "Hey there, it's Bot!"]
-        var BotResponse = '<img class="botAvatar" src="/img/botAvatar.png"/><p class="botMsg">' + arr[Math.floor(Math.random() * arr.length)] + '</p><div class="clearfix"></div>';
+
+        if (name == "" || name == null || name == "null" || name == "Null") {
+            arr = ["Hello, Bot here!", "Hey, I'm Bot!", "Hi there! I'm Bot.", "Hey there, it's Bot!"];
+        } else {
+            arr = ["Hello " + name + "!", "Hi " + name + "!", "Hey " + name + "!"];
+        }
+        let BotResponse = '<img class="botAvatar" src="/img/botAvatar.png"/><p class="botMsg">' + arr[Math.floor(Math.random() * arr.length)] + '</p><div class="clearfix"></div>';
         $(BotResponse).appendTo(".chats").hide().fadeIn(1000);
         scrollToBottomOfResults();
         $("#userInput").prop('disabled', false);
